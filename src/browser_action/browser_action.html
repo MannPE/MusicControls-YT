@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<style type="text/css">
+	#mainPopup {
+		padding: 10px;
+		height: 100px;
+		width: 300px;
+		font-family: Helvetica, Ubuntu, Arial, sans-serif;
+	}
+	h1 {
+		font-size: 2em;
+	}
+	.now-playing-header{
+		font-weight: 800;
+	}
+	.controls-container{
+		display: grid;
+		grid-template-columns: auto auto auto;
+	}
+	.control-icon{
+		padding:20px 10px 0px 0px;
+	}
+</style>
+<head></head>
+<body>
+	<div id="mainPopup">
+		<div class="now-playing-header">
+			No youtube tab found- try reloading it.
+		</div>
+		<div class="controls-container">
+			<div class="grid-item">
+				<a class="control-icon"><img src="../../icons/glyphicons/png/glyphicons-171-step-backward.png"  id="next-video-control"> </a>
+				<a class="control-icon"><img src="../../icons/glyphicons/png/glyphicons-175-pause.png" id="next-video-control"> </a>
+				<a class="control-icon"><img src="../../icons/glyphicons/png/glyphicons-179-step-forward.png"  id="next-video-control"></a> 
+			</div>
+			<div class="grid-item">
+					<input id="volume-control" type="range" min="0" max="100" step="1"></input>
+			</div>
+		</div>
+	</div>
+	<script src= "../../js/jquery/jquery.min.js"></script>
+	<script src="../inject/inject.js"></script>
+</body>
