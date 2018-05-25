@@ -19,21 +19,23 @@
   "options_page": "src/options_custom/index.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "browser action demo",
+    "default_title": "Youtube controls",
     "default_popup": "src/browser_action/browser_action.html"
   },
   "permissions": [
     "history",
     "tabs",
-    "http://youtube.com"
+    "https://*/*",
+    "activeTab"
   ],
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*"
+        "https://www.youtube.com/*"
       ],
       "js": [
-        "src/inject/inject.js"
+        "src/inject/inject.js",
+        "src/inject/chafis.js"
       ]
     }
   ]

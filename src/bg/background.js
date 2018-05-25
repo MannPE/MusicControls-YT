@@ -8,8 +8,14 @@
 //example of using a message handler from the inject scripts
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
-  	chrome.pageAction.show(sender.tab.id);
-    sendResponse();
+  	console.log("shit sucks");
   });
 
-  
+chrome.browserAction.onClicked.addListener(function (tab) {
+  // for the current tab, inject the "inject.js" file & execute it
+  chrome.tabs.executeScript(tab.ib, {
+    file: 'src/inject/chafis.js'
+  });
+});
+
+
