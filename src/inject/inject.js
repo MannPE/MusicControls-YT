@@ -48,12 +48,30 @@ function _displayTab(tab){ //define your callback function
 	chrome.tabs.sendMessage(YTtabs[0].id, {greeting: "hello"}, function(response) {
 		console.log("LALALAL");
 	});
+	chrome.tabs.executeScript(YTtabs[0].id,{
+		code: '(' + modifyDOM + ')();' //argument here is a string but function.toString() returns function's code
+	}, (results) => {
+		//Here we have just the innerHTML and not DOM structure
+		console.log(results[0]);
+	});
+
+
 
 		var greeting = "hola, ";
+		console.log(YTtabs[0]);
+		
+	};
+
+	function modifyDOM() {
+        //You can play with your DOM here or check URL against your regex
+        console.log('Tab script:');
+		console.log(document.body);
 		var button = document.getElementsByClassName("ytp-next-button")[0];
 		console.log(button);
 		button.click();
-	};
+        return document.body.innerHTML;
+    }
+
 
 
 
