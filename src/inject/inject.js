@@ -2,7 +2,8 @@ var YTtabs= getYoutubeTabs(filterYoutubeTabs);
 
 const nextButtonClass = "ytp-next-button";
 const pauseButtonClass = "ytp-play-button";
-
+var videoId = "";
+var thumbnailUrl = "";
 
 chrome.extension.sendMessage({}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
@@ -34,6 +35,17 @@ $('#button-next').click( function(e) {
     });
 };
 
+
+function getVideoId(youtubeUrl){
+	var res = youtubeUrl.split("v=")[1];
+	var ampersandPosition = res.indexOf('&');
+	if(ampersandPosition != -1) {
+		res = res.substring(0, ampersandPosition);
+	}
+	console.log("new Video ID:",res);
+	return res;
+}
+
 function filterYoutubeTabs(tabArray, callback){ // Gets all tabs that contain http://www.youtube.com
 	var finalTabs = [];
 	for (let i = 0; i < tabArray.length; i++) {
@@ -49,6 +61,9 @@ function filterYoutubeTabs(tabArray, callback){ // Gets all tabs that contain ht
 
 function _displayTab(tab){ //define your callback function
 	document.getElementById("now-playing-header").innerHTML= tab[0].title;
+	videoId = getVideoId(tab[0].url);
+	thumbnailUrl = "https://img.youtube.com/vi/"+videoId+"/0.jpg";
+	changeThumbnail();
     return (tab[0]);
  };
 
@@ -77,7 +92,10 @@ function _displayTab(tab){ //define your callback function
     }
 
 
+function changeThumbnail(){
+	$("#thumbnail").attr("src",thumbnailUrl);
 
+}
 
  chrome.tabs.onUpdated.addListener(function() {
 	var tabs = getYoutubeTabs(filterYoutubeTabs); 
