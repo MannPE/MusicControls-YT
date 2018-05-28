@@ -23,7 +23,6 @@
     "default_popup": "src/browser_action/browser_action.html"
   },
   "permissions": [
-    "history",
     "tabs",
     "https://*/*",
     "activeTab",

@@ -1,5 +1,4 @@
 var YTtabs= getYoutubeTabs(filterYoutubeTabs); 
-const pauseButtonClass = "ytp-play-button";
 var videoId = "";
 var thumbnailUrl = "";
 import {next as nextCommand} from './Controls/YoutubeControls/nextSongCommand.js';
