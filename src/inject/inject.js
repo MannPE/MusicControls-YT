@@ -1,32 +1,26 @@
 var YTtabs= getYoutubeTabs(filterYoutubeTabs); 
-
-const nextButtonClass = "ytp-next-button";
 const pauseButtonClass = "ytp-play-button";
 var videoId = "";
 var thumbnailUrl = "";
+import {next as nextCommand} from './Controls/YoutubeControls/nextSongCommand.js';
+import {play as playCommand} from './Controls/YoutubeControls/pauseSongCommand.js';
 
 chrome.extension.sendMessage({}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
 	if (document.readyState === "complete") {
 		clearInterval(readyStateCheckInterval);
-
-		// ----------------------------------------------------------
-		// This part of the script triggers when page is done loading
-		console.log("Hello. This message was sent from scripts/inject.js");
-		// ----------------------------------------------------------
 	}
 	}, 10);
 });
 $('#button-next').click( function(e) {
 	e.preventDefault();
 	console.log(YTtabs);
-	_controlPlayer(nextButtonClass);
+	nextCommand.execute(YTtabs[0]);
  } );
 
  $('#button-pause').click( function(e) {
 	e.preventDefault();
-	console.log(YTtabs);
-	_controlPlayer(pauseButtonClass);
+	playCommand.execute(YTtabs[0])
  });
 
  function getYoutubeTabs(callback){ //Take a callback
@@ -76,7 +70,7 @@ function _displayTab(tab){ //define your callback function
 		code: '(' + emulateKeyPress + ')(\''+button +'\');' //argument here is a string but function.toString() returns function's code
 	}, (results) => {
 		//Here we have just the innerHTML and not DOM structure
-		console.log(results[0]);
+		//console.log(results[0]);
 	});
 		var greeting = "hola, ";
 		console.log(YTtabs[0]);

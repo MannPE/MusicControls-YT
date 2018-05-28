@@ -119,6 +119,22 @@ this.manifest = {
                 ["hot", "Hot and yummy"],
                 ["cold"]
             ]
+        },
+        {
+            "tab": "Extras",
+            "group": "Stream",
+            "name": "generate_text_file",
+            "type": "checkbox",
+            "label": "Generate text file",
+            "display": true
+        },
+        {
+            "tab": "Extras",
+            "group": "Stream",
+            "name": "generate_file_location",
+            "type": "text",
+            "label": "File location",
+            "display": true
         }
     ],
     "alignment": [

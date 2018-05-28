@@ -2,15 +2,15 @@
 this.i18n = {
     "settings": {
         "en": "Settings",
-        "de": "Optionen"
+        "es": "Opciones"
     },
     "search": {
         "en": "Search",
-        "de": "Suche"
+        "es": "Buscar"
     },
     "nothing-found": {
         "en": "No matches were found.",
-        "de": "Keine Übereinstimmungen gefunden."
+        "es": "No se encontró nada"
     },
     
     

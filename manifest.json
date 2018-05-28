@@ -1,6 +1,6 @@
 {
-  "name": "Youtube - Z",
-  "version": "0.0.1",
+  "name": "Zirael Tube",
+  "version": "0.1.1",
   "manifest_version": 2,
   "description": "Youtube controls for \"background\" play",
   "homepage_url": "http://github.com/ma4nni",
@@ -26,7 +26,8 @@
     "history",
     "tabs",
     "https://*/*",
-    "activeTab"
+    "activeTab",
+    {"fileSystem": ["write", "retainEntries", "directory"]}
   ],
   "content_scripts": [
     {
@@ -35,7 +36,8 @@
       ],
       "js": [
         "src/inject/inject.js",
-        "src/inject/chafis.js"
+        "src/inject/Controls*.js",
+        "src/inject/Controls/YoutubeControls/*.js"
       ]
     }
   ]
