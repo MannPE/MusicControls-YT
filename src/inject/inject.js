@@ -1,8 +1,9 @@
 var YTtabs= getYoutubeTabs(filterYoutubeTabs); 
 var videoId = "";
 var thumbnailUrl = "";
-import {next as nextCommand} from './Controls/YoutubeControls/nextSongCommand.js';
-import {play as playCommand} from './Controls/YoutubeControls/pauseSongCommand.js';
+import {next as nextCommand} from './Controls/Youtube/Commands/nextSongCommand.js';
+import {play as playCommand} from './Controls/Youtube/Commands/pauseSongCommand.js';
+import {back as backCommand} from './Controls/Youtube/Commands/prevSongCommand.js';
 
 chrome.extension.sendMessage({}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
@@ -21,6 +22,12 @@ $('#button-next').click( function(e) {
 	e.preventDefault();
 	playCommand.execute(YTtabs[0])
  });
+
+ $('#button-back').click( function(e) {
+	e.preventDefault();
+	backCommand.execute(YTtabs[0]);
+ } );
+
 
  function getYoutubeTabs(callback){ //Take a callback
     chrome.tabs.query({},function(tab){

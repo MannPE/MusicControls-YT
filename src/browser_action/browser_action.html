@@ -15,6 +15,9 @@
 	.controls-container{
 		display: grid;
 		grid-template-columns: auto auto auto;
+		position:absolute;
+		bottom:10px;
+		background-color:azure;
 	}
 	.control-icon{
 		padding:20px 10px 0px 0px;
@@ -47,12 +50,7 @@
 <head></head>
 <body>
 	<div id="mainPopup">
-		<div class="controls-container">
 
-			<div class="grid-item">
-					<input id="volume-control" type="range" min="0" max="100" step="1"></input>
-			</div>
-		</div>
 		<div id="thumbnail-container">
 			<div class="col-xs-12">
 				<div class="row">
@@ -65,10 +63,12 @@
 									</div>
 								</div>
 								<div id="bottom-control-overlay" class="thumbnail-overlay">
-									<div class="grid-item">
-										<a  class="control-icon"><img src="../../icons/glyphicons/png/glyphicons-171-step-backward.png"> </a>
-										<a id= "button-pause" class="control-icon"><img id="pause-image" src="../../icons/glyphicons/png/glyphicons-175-pause.png" > </a>
-										<a id= "button-next" class="control-icon"><img src="../../icons/glyphicons/png/glyphicons-179-step-forward.png"></a> 
+									<div class="controls-container">
+										<div class="grid-item">
+											<a id="button-back" class="control-icon"><img src="../../icons/glyphicons/png/glyphicons-171-step-backward.png"> </a>
+											<a id= "button-pause" class="control-icon"><img id="pause-image" src="../../icons/glyphicons/png/glyphicons-175-pause.png" > </a>
+											<a id= "button-next" class="control-icon"><img src="../../icons/glyphicons/png/glyphicons-179-step-forward.png"></a> 
+										</div>
 									</div>
 								</div>
 							</div>

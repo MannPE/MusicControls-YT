@@ -1,4 +1,4 @@
-import * as commons from '../commonCommands.js';
+import * as commons from '../../commons.js';
 
 const nextButtonClass = "ytp-next-button"
 

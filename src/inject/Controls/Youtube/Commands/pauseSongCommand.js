@@ -1,4 +1,4 @@
-import * as commons from '../commonCommands.js';
+import * as commons from '../../commons.js';
 
 const playButtonClass = "ytp-play-button"
 const playerPausedProperty = "ytp-autohide-active";
