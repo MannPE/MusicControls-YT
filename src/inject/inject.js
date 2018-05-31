@@ -86,8 +86,7 @@ function _displayTab(tab){ //define your callback function
 
 
 function changeThumbnail(){
-	$("#thumbnail").attr("src",thumbnailUrl);
-
+	$('#thumbnail').css('background-image', 'url(' + thumbnailUrl + ')');
 }
 
  chrome.tabs.onUpdated.addListener(function() {
