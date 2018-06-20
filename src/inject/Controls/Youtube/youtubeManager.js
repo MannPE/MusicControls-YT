@@ -19,6 +19,9 @@ function _getVideoTitle(tab){
     return tab.title;
 }
 
+function _getVideoVolumeLevel(tab){
+	
+}
 
 export const getVideoId = _getVideoId;
 export const getVideoThumbnail = _getVideoThumbnail;

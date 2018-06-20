@@ -4,6 +4,7 @@ var thumbnailUrl = "";
 import {next as nextCommand} from './Controls/Youtube/Commands/nextSongCommand.js';
 import {play as playCommand} from './Controls/Youtube/Commands/pauseSongCommand.js';
 import {back as backCommand} from './Controls/Youtube/Commands/prevSongCommand.js';
+import {changeVolume as volumeCommand} from './Controls/Youtube/Commands/changeVolumeCommand.js';
 
 chrome.extension.sendMessage({}, function(response) {
 	var readyStateCheckInterval = setInterval(function() {
@@ -59,13 +60,19 @@ function filterYoutubeTabs(tabArray, callback){ // Gets all tabs that contain ht
 }
 
 function _displayTab(tab){ //define your callback function
-	document.getElementById("now-playing-header").innerHTML= tab[0].title;
+	document.getElementById("now-playing-header").innerHTML= _parseYoutubeTitle(tab[0].title);
 	videoId = getVideoId(tab[0].url);
 	thumbnailUrl = "https://img.youtube.com/vi/"+videoId+"/0.jpg";
 	changeThumbnail();
     return (tab[0]);
  };
 
+
+ function _parseYoutubeTitle(oldTitle){
+	var ytIndex = oldTitle.indexOf("- YouTube");
+	var newTitle = oldTitle.substring(0,ytIndex);
+	return newTitle;
+ }
 
  function _controlPlayer(button){
 	chrome.tabs.executeScript(YTtabs[0].id,{
@@ -101,7 +108,10 @@ function createVolumeControl(){
 		min: 0,
 		max: 100,
 		value: 30,
-		range: "min"
+		range: "min",
+		slide: function( event, ui ) {
+			volumeCommand.execute(YTtabs[0],ui.value);
+		}
 	  });
-	  
+	
 }
