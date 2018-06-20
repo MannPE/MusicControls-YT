@@ -20,6 +20,7 @@ function emulateKey(button, tab, callback){
     });
 };
 
+
 function getPlayerInfo(tab, callback){
     chrome.tabs.executeScript(tab.id,{
         code: '(' + getElementOuterHtml + ')(\''+"movie_player" +'\');', //argument here is a string but function.toString() returns function's code

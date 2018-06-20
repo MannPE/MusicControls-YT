@@ -14,7 +14,6 @@ chrome.extension.sendMessage({}, function(response) {
 });
 $('#button-next').click( function(e) {
 	e.preventDefault();
-	console.log(YTtabs);
 	nextCommand.execute(YTtabs[0]);
  } );
 
@@ -27,7 +26,7 @@ $('#button-next').click( function(e) {
 	e.preventDefault();
 	backCommand.execute(YTtabs[0]);
  } );
-
+createVolumeControl();
 
  function getYoutubeTabs(callback){ //Take a callback
     chrome.tabs.query({},function(tab){
@@ -69,9 +68,6 @@ function _displayTab(tab){ //define your callback function
 
 
  function _controlPlayer(button){
-	chrome.tabs.sendMessage(YTtabs[0].id, {greeting: "hello"}, function(response) {
-		console.log("LALALAL");
-	});
 	chrome.tabs.executeScript(YTtabs[0].id,{
 		code: '(' + emulateKeyPress + ')(\''+button +'\');' //argument here is a string but function.toString() returns function's code
 	}, (results) => {
@@ -100,3 +96,12 @@ function changeThumbnail(){
 	var tabs = getYoutubeTabs(filterYoutubeTabs); 
   });
 
+function createVolumeControl(){
+	$("#volume").slider({
+		min: 0,
+		max: 100,
+		value: 30,
+		range: "min"
+	  });
+	  
+}
