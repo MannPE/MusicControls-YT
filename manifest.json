@@ -11,9 +11,7 @@
   },
   "default_locale": "en",
   "background": {
-    "scripts": [
-      "src/bg/background.js"
-    ],
+    "page": "src/bg/bg.html",
     "persistent": true
   },
   "options_page": "src/options_custom/index.html",
@@ -37,5 +35,15 @@
         "src/inject/inject.js"
       ]
     }
-  ]
+  ],
+  "commands":{
+    "toggle-play":{
+      "suggested-key":{
+        "default":"Alt+P",
+        "windows":"Ctrl+Shift+1"
+      },
+      "description":"Allows to pause or resume your video",
+      "global":true
+    }
+  }
 }
