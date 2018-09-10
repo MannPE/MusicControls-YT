@@ -24,6 +24,7 @@
     "tabs",
     "https://*/*",
     "activeTab",
+    "notifications",
     {"fileSystem": ["write", "retainEntries", "directory"]}
   ],
   "content_scripts": [
@@ -39,7 +40,7 @@
   "commands":{
     "toggle-play":{
       "suggested-key":{
-        "default":"Alt+P",
+        "default":"Ctrl+Shift+1",
         "windows":"Ctrl+Shift+1"
       },
       "description":"Allows to pause or resume your video",

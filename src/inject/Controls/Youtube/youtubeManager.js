@@ -23,6 +23,10 @@ function _getVideoVolumeLevel(tab){
 	
 }
 
+function _getVideoPlayingStatus(tab){
+	
+}
+
 export const getVideoId = _getVideoId;
 export const getVideoThumbnail = _getVideoThumbnail;
 export const getVideoTitle = _getVideoTitle;
