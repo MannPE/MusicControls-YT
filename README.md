@@ -1,2 +1,2 @@
 # MusicControls-YT
-Chrome extension for controlling youtube
+Simple chrome extension for controlling youtube as a music player
