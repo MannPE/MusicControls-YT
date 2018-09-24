@@ -15,7 +15,7 @@ function emulateKey(button, tab, callback){
 		code: '(' + clickKey + ')(\''+button +'\');' //argument here is a string but function.toString() returns function's code
 	}, (results) => {
 		//Here we have just the innerHTML and not DOM structure
-        console.log("next Command successful\n",results[0]);
+        console.log("Command successful\n",results[0]);
         callback(results[0]);
     });
 };

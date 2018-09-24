@@ -1,5 +1,3 @@
-
-
 function _getVideoId(youtubeUrl){
 	var res = youtubeUrl.split("v=")[1];
 	var ampersandPosition = res.indexOf('&');
@@ -19,14 +17,24 @@ function _getVideoTitle(tab){
     return tab.title;
 }
 
-function _getVideoVolumeLevel(tab){
-	
+function _getVideoVolume(tab){
+	chrome.tabs.executeScript(tab.id,{
+		code: 'console.log(document.getElementsByClassName("html5-main-video")[0].volume)' 
+	}, (results) => {
+		return results;
+	});
 }
 
-function _getVideoPlayingStatus(tab){
-	
+function _getVideoPlayingStatus(tab, callback){
+	chrome.tabs.executeScript(tab.id,{
+		code: '(!document.getElementsByClassName("html5-main-video")[0].paused);' 
+	}, (results) => {
+		callback(results[0]);
+	});
 }
 
 export const getVideoId = _getVideoId;
 export const getVideoThumbnail = _getVideoThumbnail;
 export const getVideoTitle = _getVideoTitle;
+export const getVideoVolume = _getVideoVolume;
+export const getVideoIsPlaying = _getVideoPlayingStatus;
